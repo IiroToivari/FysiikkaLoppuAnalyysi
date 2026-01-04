@@ -13,9 +13,12 @@ def butter_lowpass_filter(data, cutoff, fs, nyq, order):
 
 st.title("Lopputyön analysointi")
 
-data_dir = Path(__file__).parent / "data"
-acc_df = pd.read_csv(data_dir / "Linear Acceleration.csv")
-gps_df = pd.read_csv(data_dir / "Location.csv")
+ACC_URL = "https://raw.githubusercontent.com/IiroToivari/FysiikkaLoppuAnalyysi/main/data/Linear%20Acceleration.csv"
+GPS_URL = "https://raw.githubusercontent.com/IiroToivari/FysiikkaLoppuAnalyysi/main/data/Location.csv"
+
+acc_df = pd.read_csv(ACC_URL)
+gps_df = pd.read_csv(GPS_URL)
+
 
 time = acc_df["Time (s)"].to_numpy(dtype=float)
 data = acc_df["Linear Acceleration y (m/s^2)"].to_numpy(dtype=float)
